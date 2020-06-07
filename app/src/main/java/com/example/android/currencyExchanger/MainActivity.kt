@@ -15,18 +15,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val editText: EditText = findViewById<EditText>(R.id.editTextValue)
+        val textView1: TextView = findViewById<TextView>(R.id.rusValue)
+        val textView2: TextView = findViewById<TextView>(R.id.usaValue)
 
         editText.afterTextChanged {
-
-            println(it.toInt())
-
-            val textView1: TextView = findViewById<TextView>(R.id.rusValue)
-            textView1.text = it.toFloat().toString()
-
-            val textView2: TextView = findViewById<TextView>(R.id.usaValue)
-            textView2.text = (it.toFloat() / 74).toString()
+            if (it.isNotEmpty()) {
+                textView1.text = it.toFloat().toString()
+                textView2.text = (it.toFloat() / 74).toString()
+            } else {
+                textView1.text = "0"
+                textView2.text = "0"
+            }
         }
-
     }
 
     fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
