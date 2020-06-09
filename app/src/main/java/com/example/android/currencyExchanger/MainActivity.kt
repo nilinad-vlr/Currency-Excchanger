@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val buttons = [btn0, btn1, btn2, btn4, btn5]
+    // val buttons = arrayOf(btn0,btn1,btn2,btn4,btn5,btn6,btn7,btn8,btn9,btnAC,btnBackSpace)
 
 
         btn0.setOnClickListener { setTextFields("0") }
@@ -35,10 +35,11 @@ class MainActivity : AppCompatActivity() {
         }
         btnBackSpace.setOnClickListener {
             val str = inputText.text.toString()
-            if (str.isNotEmpty() && str.length != 1 ) {
+            val lenS = inputText.text.toString().length
+            if (str.isNotEmpty() && lenS > 2 ) {
                 inputText.text = str.substring(0,str.length-1)
                 outputText.text = convert(str.substring(0,str.length-1))
-            } else if (str.isNotEmpty() && str.length == 1){
+            } else if (str.isNotEmpty() && lenS == 2){
                 inputText.text = ""
                 outputText.text = ""
             }

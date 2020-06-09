@@ -53,7 +53,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorBlack"
             android:textSize="24sp"
-            android:maxLength="10"/>
+            android:maxLength="9"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -104,7 +104,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorBlack"
             android:textSize="24sp"
-            android:maxLength="10"/>
+            android:maxLength="9"/>
 
     </RelativeLayout>
     <LinearLayout
@@ -121,41 +121,20 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/btn1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberOne"
                 android:text="1"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp"/>
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberTwo"
                 android:text="2"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp"/>
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberThree"
                 android:text="3"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp"/>
+                style="@style/button"/>
         </LinearLayout>
 
         <LinearLayout
@@ -164,41 +143,20 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/btn4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberFour"
                 android:text="4"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberFive"
                 android:text="5"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberSix"
                 android:text="6"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
         </LinearLayout>
 
         <LinearLayout
@@ -206,41 +164,20 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
-            <Button
+            <TextView
                 android:id="@+id/btn7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberSeven"
                 android:text="7"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberEight"
                 android:text="8"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn9"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberNine"
                 android:text="9"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
         </LinearLayout>
 
         <LinearLayout
@@ -249,40 +186,21 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/btnAC"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="dotButton"
                 android:text="ac"
-                android:textAllCaps="true"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn0"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:fontFamily="monospace"
-                android:onClick="numberZero"
                 android:text="0"
-                android:textColor="@color/colorWhite"
-                android:textSize="48sp" />
+                style="@style/button"/>
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btnBackSpace"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:onClick="backspaceButton"
+                android:src="@drawable/backspace_icon_s"
                 android:scaleType="center"
-                android:src="@drawable/backspace_icon_s" />
+                style="@style/button"/>
 
         </LinearLayout>
 
