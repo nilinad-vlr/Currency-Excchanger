@@ -6,55 +6,35 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val model = ExchangeModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // val buttons = arrayOf(btn0,btn1,btn2,btn4,btn5,btn6,btn7,btn8,btn9,btnAC,btnBackSpace
-
-        btn0.setOnClickListener { setTextFields("0") }
-        btn1.setOnClickListener { setTextFields("1") }
-        btn2.setOnClickListener { setTextFields("2") }
-        btn3.setOnClickListener { setTextFields("3") }
-        btn4.setOnClickListener { setTextFields("4") }
-        btn5.setOnClickListener { setTextFields("5") }
-        btn6.setOnClickListener { setTextFields("6") }
-        btn7.setOnClickListener { setTextFields("7") }
-        btn8.setOnClickListener { setTextFields("8") }
-        btn9.setOnClickListener { setTextFields("9") }
-        btnAC.setOnClickListener {
-            inputText.text = ""
-            outputText.text = ""
-        }
-        btnBackSpace.setOnClickListener {
-            val str = inputText.text.toString()
-            val lenS = inputText.text.toString().length
-            if (str.isNotEmpty() && lenS > 1) {
-                val cutInputText = str.substring(0, str.length - 1)
-                inputText.text = cutInputText
-                outputText.text = convert(cutInputText)
-            } else if (str.isNotEmpty() && lenS == 1) {
-                inputText.text = ""
-                outputText.text = ""
-            }
-        }
+        setViews()
     }
 
-    fun setTextFields(str: String) {
-        val lenS = inputText.text.toString().length
-        if (inputText.text.isEmpty() && str.toInt() != 0 ) {
-            val newString = inputText.text.toString().plus(str)
-            inputText.text = newString
-            outputText.text = convert(newString)
-        } else if (inputText.text.isNotEmpty() && lenS < 9 ) {
-            val newString = inputText.text.toString().plus(str)
-            inputText.text = newString
-            outputText.text = convert(newString)
-        }
+    private fun setViews() {
+        btn0.setOnClickListener { updateTextFields("0") }
+        btn1.setOnClickListener { updateTextFields("1") }
+        btn2.setOnClickListener { updateTextFields("2") }
+        btn3.setOnClickListener { updateTextFields("3") }
+        btn4.setOnClickListener { updateTextFields("4") }
+        btn5.setOnClickListener { updateTextFields("5") }
+        btn6.setOnClickListener { updateTextFields("6") }
+        btn7.setOnClickListener { updateTextFields("7") }
+        btn8.setOnClickListener { updateTextFields("8") }
+        btn9.setOnClickListener { updateTextFields("9") }
+        btnAC.setOnClickListener { updateTextFields("AC") }
+        btnBackSpace.setOnClickListener { updateTextFields("backspace") }
+
+        updateTextFields("0")
     }
 
-    fun convert(string: String): String {
-        return (string.toFloat() / 74).toString()
+    private fun updateTextFields(str: String) {
+        val modelResult = model.update(str)
+        inputText.text = modelResult.first
+        outputText.text = modelResult.second
     }
 }
 
