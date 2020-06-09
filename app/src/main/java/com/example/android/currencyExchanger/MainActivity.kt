@@ -15,8 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val inputText: TextView = findViewById<TextView>(R.id.inputText)
-        val outputText: TextView = findViewById<TextView>(R.id.outputText)
+
+//        val buttons = [btn0, btn1, btn2, btn4, btn5]
+
 
         btn0.setOnClickListener { setTextFields("0") }
         btn1.setOnClickListener { setTextFields("1") }
@@ -34,16 +35,32 @@ class MainActivity : AppCompatActivity() {
         }
         btnBackSpace.setOnClickListener {
             val str = inputText.text.toString()
-            if (str.isNotEmpty()) {
-                inputText.text = str.substring(0, str.length - 1)
-            } else {
-                inputText.text = "0"
+            if (str.isNotEmpty() && str.length != 1 ) {
+                inputText.text = str.substring(0,str.length-1)
+                outputText.text = convert(str.substring(0,str.length-1))
+            } else if (str.isNotEmpty() && str.length == 1){
+                inputText.text = ""
+                outputText.text = ""
             }
-            outputText.text = ""
+
         }
     }
 
-    fun setTextFields(str: String) {
-        inputText.text = inputText.text.toString().plus(str)
+     fun setTextFields(str: String) {
+         val newString = inputText.text.toString().plus(str)
+         if (inputText.text.isEmpty() && str.toInt() != 0) {
+             inputText.text = newString
+             outputText.text = convert(newString)
+         } else if (inputText.text.isNotEmpty()) {
+             inputText.text = newString
+             outputText.text = convert(newString)
+         }
+    }
+
+     fun convert(string: String): String {
+         return (string.toFloat() / 74).toString()
     }
 }
+
+
+
