@@ -1,13 +1,7 @@
 package com.example.android.currencyExchanger
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    // val buttons = arrayOf(btn0,btn1,btn2,btn4,btn5,btn6,btn7,btn8,btn9,btnAC,btnBackSpace)
-
+        // val buttons = arrayOf(btn0,btn1,btn2,btn4,btn5,btn6,btn7,btn8,btn9,btnAC,btnBackSpace
 
         btn0.setOnClickListener { setTextFields("0") }
         btn1.setOnClickListener { setTextFields("1") }
@@ -36,30 +29,32 @@ class MainActivity : AppCompatActivity() {
         btnBackSpace.setOnClickListener {
             val str = inputText.text.toString()
             val lenS = inputText.text.toString().length
-            if (str.isNotEmpty() && lenS > 2 ) {
-                inputText.text = str.substring(0,str.length-1)
-                outputText.text = convert(str.substring(0,str.length-1))
-            } else if (str.isNotEmpty() && lenS == 2){
+            if (str.isNotEmpty() && lenS > 1) {
+                val cutInputText = str.substring(0, str.length - 1)
+                inputText.text = cutInputText
+                outputText.text = convert(cutInputText)
+            } else if (str.isNotEmpty() && lenS == 1) {
                 inputText.text = ""
                 outputText.text = ""
             }
-
         }
     }
 
-     fun setTextFields(str: String) {
-         val newString = inputText.text.toString().plus(str)
-         if (inputText.text.isEmpty() && str.toInt() != 0) {
-             inputText.text = newString
-             outputText.text = convert(newString)
-         } else if (inputText.text.isNotEmpty()) {
-             inputText.text = newString
-             outputText.text = convert(newString)
-         }
+    fun setTextFields(str: String) {
+        val lenS = inputText.text.toString().length
+        if (inputText.text.isEmpty() && str.toInt() != 0 ) {
+            val newString = inputText.text.toString().plus(str)
+            inputText.text = newString
+            outputText.text = convert(newString)
+        } else if (inputText.text.isNotEmpty() && lenS < 9 ) {
+            val newString = inputText.text.toString().plus(str)
+            inputText.text = newString
+            outputText.text = convert(newString)
+        }
     }
 
-     fun convert(string: String): String {
-         return (string.toFloat() / 74).toString()
+    fun convert(string: String): String {
+        return (string.toFloat() / 74).toString()
     }
 }
 
