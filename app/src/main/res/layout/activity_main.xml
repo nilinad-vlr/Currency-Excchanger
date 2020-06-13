@@ -5,114 +5,138 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="3">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/colorWhite">
 
-        <ImageView
-            android:id="@+id/firstFlag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/rus_flag_72" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3 ">
 
-        <TextView
-            android:id="@+id/From"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/firstValue"
-            android:layout_marginBottom="23.5dp"
-            android:layout_toEndOf="@id/firstFlag"
-            android:text="from"
-            android:textAllCaps="true"
-            android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/firstFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/rus_flag_72" />
 
-        <TextView
-            android:id="@+id/firstValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="31dp"
-            android:layout_toEndOf="@id/firstFlag"
-            android:text="rub"
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp" />
+            <TextView
+                android:id="@+id/From"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/firstValue"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/firstFlag"
+                android:text="from"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/inputText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="25dp"
-            android:text=""
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/firstValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/firstFlag"
+                android:text="rub"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="3">
+            <TextView
+                android:id="@+id/inputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/secondFlag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/usa_flag_72" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5">
 
-        <TextView
-            android:id="@+id/to"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/secondValue"
-            android:layout_marginBottom="31dp"
-            android:layout_toEndOf="@id/secondFlag"
-            android:text="to"
-            android:textAllCaps="true"
-            android:textSize="12sp" />
+            <ImageButton
+                android:id="@+id/btnSwap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button"
+                android:scaleType="centerCrop"
+                android:src="@drawable/change_button_48"
+                android:onClick="swapCurrency"/>
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/secondValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="31dp"
-            android:layout_toRightOf="@id/secondFlag"
-            android:text="usd"
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
-        <TextView
-            android:id="@+id/outputText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="31dp"
-            android:maxLength="9"
-            android:text=""
-            android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp" />
+            <ImageView
+                android:id="@+id/secondFlag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/usa_flag_72" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/secondValue"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/secondFlag"
+                android:text="to"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/secondValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/secondFlag"
+                android:text="usd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/outputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:maxLength="9"
+                android:text=""
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="2"
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
         android:padding="8dp">

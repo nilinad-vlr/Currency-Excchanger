@@ -1,6 +1,7 @@
 package com.example.android.currencyExchanger
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,9 +28,40 @@ class MainActivity : AppCompatActivity() {
         btn9.setOnClickListener { updateTextFields("9") }
         btnAC.setOnClickListener { updateTextFields("AC") }
         btnBackSpace.setOnClickListener { updateTextFields("backspace") }
+        btnSwap.setOnClickListener { swapCurrency() }
 
         updateTextFields("0")
     }
+
+
+    private fun swapCurrency() {
+        model.swapCurrency()
+        updateTextFields("AC")
+
+        when (model.inputCurrency) {
+            ExchangeModel.Currency.RUB -> {
+                firstFlag.setImageResource(R.drawable.rus_flag_72)
+                firstValue.setText("RUB")
+            }
+
+            ExchangeModel.Currency.USD -> {
+                firstFlag.setImageResource(R.drawable.usa_flag_72)
+                firstValue.setText("USD")
+            }
+        }
+
+        when (model.outputCurrency){
+            ExchangeModel.Currency.RUB -> {
+                secondFlag.setImageResource(R.drawable.rus_flag_72)
+                secondValue.setText("RUB")
+        }
+            ExchangeModel.Currency.USD -> {
+                secondFlag.setImageResource(R.drawable.usa_flag_72)
+                secondValue.setText("USD")
+            }
+        }
+    }
+
 
     private fun updateTextFields(str: String) {
         val modelResult = model.update(str)
@@ -37,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         outputText.text = modelResult.second
     }
 }
+
 
 
 
